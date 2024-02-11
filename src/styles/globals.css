@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: #061006;
+    --background-end-rgb: #010605;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  @apply font-mono bg-background;
+}
+
+@layer components {
+  .header {
+    @apply fixed top-0;
+  }
+  .flex-center {
+    @apply flex items-center;
+  }
+
+  .flex-center-col {
+    @apply flex-center flex-col;
+  }
+
+  .form-input {
+    @apply text-gray-300 md:text-lg bg-gray-600 outline-none p-2 rounded-md;
+    font-size: medium;
+  }
+
+  @media (max-width: 760px) {
+    .header {
+      @apply bottom-0 left-0;
+    }
+  }
+}
+
+main.comments {
+  @apply bg-background flex justify-center w-full overflow-auto overflow-x-hidden pb-7;
+}
+
+section.comments {
+  @apply w-full max-w-3xl flex flex-col items-center rounded-lg border border-gray-600 overflow-auto overflow-x-hidden min-h-[575px] max-h-[575px] gap-3 p-4 mx-3 md:mx-0 lg:mx-0;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #222;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #555;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
